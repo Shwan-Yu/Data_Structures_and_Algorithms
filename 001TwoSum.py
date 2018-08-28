@@ -5,7 +5,7 @@ class Solution:
         :type target: int
         :rtype: List[int]
         """
-        nums_with_index = index, value for value, index in enumerate(nums)
+        nums_with_index = [(index, value) for value, index in enumerate(nums)]
         nums_with_index.sort()
         start, end  = 0, len(nums) - 1
         while start < end:
