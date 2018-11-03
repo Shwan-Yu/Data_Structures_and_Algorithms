@@ -5,7 +5,6 @@ class Solution:
         :type target: int
         :rtype: int
         """
-        res = []
         length = len(nums)
         nums.sort()
         result = float('inf')
