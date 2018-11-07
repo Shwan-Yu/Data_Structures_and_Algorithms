@@ -7,16 +7,16 @@ class Solution(object):
         if not M:
             return 0
         
-        def dfs(M, node):
-            visited.add(node)
-            for fri_id in range(len(M)):
-                if M[node][fri_id] != 1 or fri_id in visited:
-                    continue
-                dfs(M, fri_id)
-            
+        def dfs(M, i):
+            visited.add(i)
+            for j in range(len(M[i])):
+                if M[i][j] == 1 and j not in visited:
+                    dfs(M, j)
+        
         visited = set()
         count = 0
         for i in range(len(M)):
             if i not in visited:
                 dfs(M, i)
                 count += 1
+        return count
