@@ -38,7 +38,7 @@ class Codec:
         if not data:
             return
         stack = []
-        data = list(map(int, data.split(" ")))
+        data = map(int, data.split(" "))
         root = node = TreeNode(data[0])
         for val in data[1:]:
             if val < node.val:
