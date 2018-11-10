@@ -15,9 +15,7 @@ class Solution(object):
         """
         if not root:
             return None
-        if root.val == p.val or root.val == q.val:
-            return root
-        if p.val < root.val < q.val or p.val > root.val > q.val:
+        if p.val <= root.val <= q.val or p.val >= root.val >= q.val:
             return root
         elif root.val > max(p.val, q.val):
             return self.lowestCommonAncestor(root.left, p, q)
