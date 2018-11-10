@@ -11,12 +11,12 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
+        def check_sym(p, q):
+            if p and q:
+                return p.val == q.val and check_sym(p.left, q.right) and check_sym(p.right, q.left)
+            return p is q
+        
         if not root:
             return True
+        return check_sym(root.left, root.right)
         
-        def isSym(l, r):
-            if l and r and l.val == r.val:
-                return isSym(l.left, r.right) and isSym(l.right, r.left)
-            return l == r #check if both None
-        
-        return isSym(root.left, root.right)
