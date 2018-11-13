@@ -15,4 +15,5 @@ class Solution(object):
             return 0
         l = self.minDepth(root.left)
         r = self.minDepth(root.right)
-        return 1 + (min(l,r) or max(l,r)) # when don't have kid, min(l,r) = 0, return the other one.
+        # when don't have kid, min(l,r) = 0, return the other one.
+        return 1 + (min(l,r) or max(l,r)) 
