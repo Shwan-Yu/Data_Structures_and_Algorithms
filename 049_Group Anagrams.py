@@ -6,6 +6,6 @@ class Solution(object):
         """
         dic = {}
         for string in strs:
-            key = tuple(sorted(string))
+            key = "".join(sorted(string))
             dic[key] = dic.get(key, []) + [string]
         return dic.values()
