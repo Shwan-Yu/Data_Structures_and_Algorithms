@@ -4,8 +4,8 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        dic = {}
+        dic = collections.defaultdict(list)
         for string in strs:
             key = "".join(sorted(string))
-            dic[key] = dic.get(key, []) + [string]
+            dic[key].append(string)
         return dic.values()
