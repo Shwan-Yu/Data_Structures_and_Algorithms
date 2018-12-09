@@ -4,5 +4,4 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        lst = [char for char in s.strip().split(" ") if char][::-1]
-        return " ".join(lst)
+        return " ".join(s.strip().split()[::-1])
