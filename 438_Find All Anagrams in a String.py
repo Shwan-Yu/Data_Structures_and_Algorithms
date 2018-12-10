@@ -11,11 +11,10 @@ class Solution(object):
         count = collections.Counter(p)
         for i in range(len(p)-1):
             if s[i] in count: count[s[i]] -= 1
-        while r <= len(s):
-            if all(map(lambda i: True if i<=0 else False, count.values())):
-                res.append(r-len(p))
-            if r == len(s): break  
+        while r < len(s):
             if s[r] in count: count[s[r]] -= 1
-            if r-len(p) >= 0 and s[r-len(p)] in count: count[s[r-len(p)]] += 1
+            if all(map(lambda i: True if i<=0 else False, count.values())):
+                res.append(r-len(p)+1)
+            if s[r-len(p)+1] in count: count[s[r-len(p)+1]] += 1
             r += 1
         return res
