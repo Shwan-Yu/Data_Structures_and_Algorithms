@@ -6,6 +6,11 @@ class Solution(object):
         :rtype: List[int]
         """
         # sliding window
+        # normal
+        # 1. update dict right
+        # 2. meets the condition, updata dict left and move left
+        # 3. move right
+        
         if len(p) > len(s): return []
         r, res = len(p)-1, []
         count = collections.Counter(p)
