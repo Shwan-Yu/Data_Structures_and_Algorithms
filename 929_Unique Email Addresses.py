@@ -9,5 +9,5 @@ class Solution(object):
             loc, dom = email.split("@")
             if "+" in loc: loc = loc[:loc.index("+")]
             loc = "".join(loc.split("."))
-            memo.add(loc+dom)
+            memo.add(loc+"@"+dom)
         return len(memo)
