@@ -10,13 +10,13 @@ class Solution(object):
         :type n: Maximum number of characters to read (int)
         :rtype: The number of characters read (int)
         """
-        i = 0
-        while i < n:
+        index = 0
+        while True:
             buf_copy = [""] * 4
             length = read4(buf_copy)
-            if not length: break
-            # if n-i < length: get n-i; else get length
-            copy_length = min(n-i, length)
-            buf[i:i+copy_length] = buf_copy[:copy_length]
-            i += copy_length
-        return i
+            len_copy = min(n-index, length)
+            if not len_copy: break
+            for i in range(len_copy):
+                buf[index] = buf_copy.pop(0)
+                index += 1
+        return index
