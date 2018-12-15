@@ -5,7 +5,7 @@ class Solution:
         :type denominator: int
         :rtype: str
         """
-        # get the n and remainder, record it in a string, then using stack to track if repeating
+        # get the ans and remainder, record it in a string, then using stack to track if repeating
         sign = "-" if numerator * denominator < 0 else ""
         ans, remain = divmod(abs(numerator), abs(denominator))
         if remain == 0: return sign + str(ans)
