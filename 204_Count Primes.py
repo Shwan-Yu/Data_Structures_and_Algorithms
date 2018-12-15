@@ -4,6 +4,7 @@ class Solution:
         :type n: int
         :rtype: int
         """
+        # O(nlogn)
         if n <= 2: return 0
         dp = [True] * n
         dp[0] = dp[1] = False
