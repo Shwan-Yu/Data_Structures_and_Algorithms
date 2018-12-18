@@ -11,16 +11,17 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
+        # in place
         dummy = node = ListNode(0)
         while l1 or l2:
             v1 = v2 = float("inf")
             if l1: v1 = l1.val
             if l2: v2 = l2.val
             if v1 > v2:
-                node.next = ListNode(v2)
+                node.next = l2
                 l2 = l2.next
             else:
-                node.next = ListNode(v1)
+                node.next = l1
                 l1 = l1.next
             node = node.next
         return dummy.next
