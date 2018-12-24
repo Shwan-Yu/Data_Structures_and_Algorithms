@@ -19,19 +19,19 @@ class MinStack(object):
         """
         :rtype: void
         """
-        self.stack.pop()
+        if self.stack: self.stack.pop() 
 
     def top(self):
         """
         :rtype: int
         """
-        return self.stack[-1][0]
+        return self.stack[-1][0] if self.stack else None
 
     def getMin(self):
         """
         :rtype: int
         """
-        return self.stack[-1][1]
+        return self.stack[-1][1] if self.stack else None
 
 
 # Your MinStack object will be instantiated and called as such:
