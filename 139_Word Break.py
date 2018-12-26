@@ -5,9 +5,10 @@ class Solution(object):
         :type wordDict: List[str]
         :rtype: bool
         """
-        dp = [False] * len(s)
-        for i in range(len(s)):
+        # condition: prev True and cur == word
+        dp = [True] + [False] * len(s)
+        for i in range(1, len(s)+1):
             for word in wordDict:
-                if word == s[i+1-len(word):i+1] and (dp[i-len(word)] or i-len(word) == -1):
+                if word == s[i-len(word):i] and dp[i-len(word)]:
                     dp[i] = True
         return dp[-1]
