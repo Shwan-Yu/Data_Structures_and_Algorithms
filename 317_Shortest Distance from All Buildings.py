@@ -9,17 +9,17 @@ class Solution(object):
         arrive_b = [[0]*n for i in range(m)]
         
         def bfs(grid, dist, arrive_b, i, j):
-            q, memo = [(i,j,0)], set([(i,j)])
+            q, memo,count = [(i,j)], set([(i,j)]), 0
             while q:
                 newq = []
-                for x, y, d in q:
+                for x, y in q:
                     for dx, dy in ((x+1,y),(x-1,y),(x,y+1),(x,y-1)):
                         if 0<=dx<m and 0<=dy<n and grid[dx][dy] == 0 and (dx, dy) not in memo:
-                            newq.append((dx,dy, d+1))
+                            newq.append((dx,dy))
                             memo.add((dx,dy))
-                            dist[dx][dy] += d+1
+                            dist[dx][dy] += count+1
                             arrive_b[dx][dy] += 1
-                q = newq
+                q, count = newq, count+1
             
         for i in range(m):
             for j in range(n):
