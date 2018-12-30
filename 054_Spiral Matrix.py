@@ -1,7 +1,11 @@
-class Solution:
+class Solution(object):
     def spiralOrder(self, matrix):
         """
         :type matrix: List[List[int]]
         :rtype: List[int]
         """
-        return matrix and [*matrix.pop(0)] + self.spiralOrder([*zip(*matrix)][::-1])
+        res = []
+        while matrix:
+            res.extend(matrix.pop(0))
+            matrix = zip(*matrix)[::-1]
+        return res
