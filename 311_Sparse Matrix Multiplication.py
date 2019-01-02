@@ -13,3 +13,5 @@ class Solution(object):
                     for k in range(nB):
                         res[i][k] += A[i][j]*B[j][k]
         return res
+    
+        # dot product, row * col
