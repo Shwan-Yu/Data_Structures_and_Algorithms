@@ -11,15 +11,16 @@ class Solution(object):
         # 2. meets the condition, updata dict left and move left
         # 3. move right
         
-        if len(p) > len(s): return []
-        r, res = len(p)-1, []
-        count = collections.Counter(p)
-        for i in range(len(p)-1):
-            if s[i] in count: count[s[i]] -= 1
+        # one less right first, update dic[s[r]] at every beginning, dic[s[l]] at every end
+        # dic[s[r]] not dic[r]
+        if len(s) < len(p): return []
+        l, r, res = 0, len(p)-1, []
+        count1 = collections.Counter(p)
+        count2 = collections.Counter(s[l:r])
         while r < len(s):
-            if s[r] in count: count[s[r]] -= 1
-            if all(map(lambda i: True if i<=0 else False, count.values())):
-                res.append(r-len(p)+1)
-            if s[r-len(p)+1] in count: count[s[r-len(p)+1]] += 1
-            r += 1
+            count2[s[r]] += 1
+            if count1 == count2: res.append(l)
+            count2[s[l]] -= 1           
+            if not count2[s[l]]: del count2[s[l]]
+            l+=1; r+=1
         return res
